@@ -1,0 +1,486 @@
+\documentclass[11pt]{article}
+
+\usepackage{amssymb,amsmath,amsfonts,eurosym,geometry,ulem,graphicx,caption,color,setspace,sectsty,comment,footmisc,caption,natbib,pdflscape,subfigure,array,hyperref}
+
+\normalem
+
+\singlespacing
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{claim}{Claim}
+\newenvironment{proof}[1][Proof]{\noindent\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+
+\newtheorem{hyp}{Hypothesis}
+\newtheorem{subhyp}{Hypothesis}[hyp]
+\renewcommand{\thesubhyp}{\thehyp\alph{subhyp}}
+
+\newcommand{\red}[1]{{\color{red} #1}}
+\newcommand{\blue}[1]{{\color{blue} #1}}
+
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+\geometry{left=1.0in,right=1.0in,top=1.0in,bottom=1.0in}
+\setlength{\parskip}{0.7em plus 0.15em minus 0.1em}
+\setlength{\parindent}{0pt}
+
+\renewenvironment{abstract}
+  {\small\begin{center}\bfseries\abstractname\end{center}\noindent}
+  {\par}
+
+\begin{document}
+
+\title{The Pseudo-Rational Choice with Multiple Tastes and Beliefs}
+\author{Gil Riella\thanks{Department of Economics, University of Brasília} \and Leonardo Sampaio\thanks{Department of Economics, University of Brasília}}
+\date{\today}
+\maketitle
+\begin{abstract}
+This paper aims to provide an axiomatic characterization of pseudo-rational
+multi-taste, multi-prior choice over menus of Anscombe--Aumann acts. Taking a
+choice correspondence as primitive, the framework allows for violations of
+the Weak Axiom of Revealed Preference. The main objective is to characterize
+choice correspondences admitting a representation of the form
+\[
+    c(A)=\bigcup_{(\pi,u)\in\mathcal{M}}
+    \operatorname*{arg\,max}_{f\in A}
+    \sum_{s\in S}\pi(s)\mathbb{E}_{f(s)}[u],
+\]
+where $\mathcal{M}$ is a set of prior--utility pairs, with each prior
+representing beliefs over states and each utility index representing a
+possible evaluation of prizes.
+
+The model follows the notion of justifiable choice: an act is chosen whenever
+it maximizes subjective expected utility under at least one admissible belief--taste
+pair. This allows for uncertainty regarding both the states of the world and
+the decision maker's tastes.
+
+The analysis focuses initially on finite prize spaces and explores an
+extension to compact metric prize spaces. The proposed approach draws on
+maximal-menu arguments and Heller's (2012) minimax theorem method to
+investigate the connection between revealed choice and multi-utility
+representations. Finally, the paper seeks to explore how indecisiveness and
+indifference may be identified and distinguished from observed choice
+behavior.
+
+\medskip
+\noindent\textbf{Keywords:} Decision under Uncertainty, Indecisiveness, Multiple Priors, Multiple Tastes, Incomplete Preferences, Revealed Preference.
+
+\medskip
+\noindent\textbf{JEL Codes:} D81, D83
+\end{abstract}
+
+\newpage
+
+\section{Introduction} \label{sec:introduction}
+
+The literature studying indecisiveness in beliefs and tastes using a binary relation as the primitive is recent but includes several notable contributions (Riella, 2014; Hara and Riella, 2015; Galaabaatar and Karni, 2013). By contrast, comparatively little work addresses these questions using a choice correspondence.
+
+Eliaz and Ok (2006) provide a pioneering contribution by introducing the WARNI axiom and characterizing when observed behavior can distinguish indecisiveness from indifference. More recently, Heller (2012) and Safonov (2023) study this distinction in environments involving risk and uncertainty, offering insights into indecisiveness in either tastes or beliefs. Their models implicitly treat the decision maker's behavior as pseudo-rational choice in the sense of Aizerman and Malishevski (1981).
+
+To the best of our knowledge, however, no model characterizes conditions on a choice correspondence under which a decision maker behaves as if she were simultaneously indecisive about both her tastes and her beliefs, rather than about either dimension separately.
+
+\section{Model} \label{sec:result}
+
+We consider an Anscombe--Aumann setup with a finite state space $S$ and a compact metric prize space $X$. An act is a function that maps each state of the world $s\in S$ to a lottery $f(s)\in\Delta(X)$, and we denote the set of all acts by $\mathcal{F}$.
+
+Here, $\Delta(X)$ denotes the set of Borel probability measures on $X$, endowed with any metric that metrizes the topology of weak convergence, and $\mathcal{F}:=\Delta(X)^S$ is endowed with the product metric. Thus, $f_n\to f$ in $\mathcal{F}$ if and only if $f_n(s)$ converges weakly to $f(s)$ for every $s\in S$. Since $X$ is compact and metrizable and $S$ is finite, both $\Delta(X)$ and $\mathcal{F}$ are compact metrizable spaces. Whenever continuous utility indices are considered, $C(Y)$ denotes the space of continuous real-valued functions on a compact metric space $Y$, endowed with the supremum norm. In particular, state-dependent utility indices belong to $C(X\times S)$, while state-independent utility indices belong to $C(X)$.
+
+Let $\mathcal{A}$ be the collection of nonempty compact menus of acts, endowed with the Hausdorff metric induced by the metric on $\mathcal{F}$, so that $\mathcal{A}\subseteq 2^{\mathcal{F}}\setminus\{\emptyset\}$. Our primitive is a choice correspondence $c\colon\mathcal{A}\to 2^{\mathcal{F}}\setminus\{\emptyset\}$ such that, for every $A\in\mathcal{A}$, $\emptyset\neq c(A)\subseteq A$. The choice correspondence is an object that the analyst can usually observe and is therefore more primitive than the notion of preference (Ok and Eliaz, 2006). Its interpretation is as follows: when the decision maker is presented with a menu $A$, she may choose any act in $c(A)$.
+
+We define mixtures of acts state by state. That is, for every $\alpha\in[0,1]$, every $g,h\in\mathcal{F}$, and every $s\in S$, $\bigl(\alpha g+(1-\alpha)h\bigr)(s)=\alpha g(s)+(1-\alpha)h(s)$. Hence, $\mathcal{F}$ can also be viewed as a mixture space. We abuse notation by using $x\in X$ to denote the degenerate constant act that yields outcome $x$ with certainty in every state, and $p\in\Delta(X)$ to denote the constant act that yields lottery $p$ in every state $s\in S$. For $\nu\in C(X\times S)$ and $f\in\mathcal{F}$, the associated state-dependent expected utility is
+\[
+    U_\nu(f):=\sum_{s\in S}\int_X \nu(x,s)\,df(s)(x).
+\]
+For a prior $\pi\in\Delta(S)$ and a state-independent utility index $u\in C(X)$, define the subjective expected utility of $f\in\mathcal{F}$ by
+\[
+    V_{\pi,u}(f):=\sum_{s\in S}\pi(s)\int_X u(x)\,df(s)(x).
+\]
+Here, $\Delta(S)$ is the simplex of probability distributions on $S$, endowed with its Euclidean topology. The space $C(X)\times\Delta(S)$ carries the product of the supremum-norm topology and this topology. Since $u$ is continuous and $X$ is compact, the integrals are well defined and $V_{\pi,u}$ is continuous and affine on $\mathcal{F}$. For a constant act $p\in\Delta(X)$, $V_{\pi,u}(p)=\int_X u(x)\,dp(x)$. When $X$ is finite, both $U_\nu$ and $V_{\pi,u}$ reduce to the corresponding finite sums.
+
+\subsection{Axioms}
+
+We impose the following axioms on the choice correspondence $c$.
+
+\medskip
+\noindent\textbf{Axiom 1 (Pseudo-WARP).} For all $A,B\in\mathcal{A}$, if $f\in c(B)\cap A$ and $c(A)\subseteq B$, then $f\in c(A)$.
+
+\medskip
+\noindent\textbf{Axiom 2 (Independence).} For every $A\in\mathcal{A}$, $\lambda\in(0,1)$, and $h\in\mathcal{F}$,\footnote{We abuse notation and write $\lambda A+(1-\lambda)h$ for the set $\{\lambda f+(1-\lambda)h:f\in A\}$.} $c\bigl(\lambda A+(1-\lambda)h\bigr)=\lambda c(A)+(1-\lambda)h$.
+
+\medskip
+\noindent\textbf{Axiom 3 (Continuity).} The set $\bigl\{(A,f)\in\mathcal{A}\times\mathcal{F}:f\in c(A)\bigr\}$ is closed.
+
+\medskip
+\noindent\textbf{Axiom 4 (Indirect Ambiguity Aversion).} For every $A\in\mathcal{A}$, $\lambda\in[0,1]$, and $f,g,h\in\mathcal{F}$, if $f\notin c\bigl(A\cup\{h\}\bigr)$ and $f\notin c\bigl(A\cup\{g\}\bigr)$, then $f\notin c\bigl(A\cup\{\lambda g+(1-\lambda)h\}\bigr)$.
+
+\medskip
+\noindent\textbf{Axiom 5 (No-Hedging).} For every $A\in\mathcal{A}$, $\lambda\in[0,1]$, and $g,h\in\mathcal{F}$, if $\{g,h\}\subseteq A$, then $c(A)\subseteq c\bigl(A\cup\{\lambda g+(1-\lambda)h\}\bigr)$.
+
+\medskip
+\noindent\textbf{Axiom 6 (Best and Worst).} There exist distinct constant acts
+$p^*,p_*\in\Delta(X)$ such that, for every $A\in\mathcal{A}$ and every
+$\lambda\in(0,1)$,
+\[
+    c\left(\{p^*\}\cup\bigl(\lambda p_*+(1-\lambda)A\bigr)\right)
+    =\{p^*\},
+    \tag{BW1}
+\]
+and
+\[
+    p_*\notin c\left(\{p_*\}\cup\bigl(\lambda p^*+(1-\lambda)A\bigr)\right).
+    \tag{BW2}
+\]
+
+\medskip
+\noindent\textbf{Axiom 7 (One-Side Monotonicity).} For every $A\in\mathcal{A}$ and every $f,g\in\mathcal{F}$, if $f\notin c\bigl(A\cup\{g(s)\}\bigr)$ for every $s\in S$, then $f\notin c\bigl(A\cup\{g\}\bigr)$.
+
+\medskip
+Pseudo-WARP imposes consistency across menus while allowing the choice correspondence to be generated by multiple possible rationales. Independence requires choice to commute with a common mixture transformation, and Continuity rules out discontinuous changes in choice as menus and acts converge. Indirect Ambiguity Aversion imposes a form of consistency under hedging: if $f$ is not chosen in the presence of $h$, and $h$ is not chosen in the presence of $g$, then replacing $h$ with any mixture of $g$ and $h$ cannot make $f$ chosen. 
+
+No-Hedging requires that adding a mixture of two acts already available in a menu does not eliminate any act that was previously chosen. Best and Worst imposes two complementary requirements: (BW1) makes $p^*$ uniquely chosen when it is added alongside mixtures of each act in the menu with $p_*$, while (BW2) rules out $p_*$ from choice when it is added alongside mixtures of each act in the menu with $p^*$. Finally, One-Side Monotonicity requires that if $f$ is not chosen when each statewise lottery of $g$ is added separately to a menu as a constant act, then $f$ is not chosen when $g$ itself is added to that menu.
+
+\section{Representation}
+
+\subsection{Additively Separable Multi-utility Representation}
+
+For this subsection, let $X$ be a compact metric prize space. Consider a strict relation $\succ\,\subseteq\mathcal{F}\times\mathcal{F}$
+and the following axioms:
+
+\medskip
+\noindent\textbf{(S1) Independence.} For all $f,g,h\in\mathcal{F}$ and
+$\alpha\in(0,1]$,$f\succ g
+    \quad\Longleftrightarrow\quad
+    \alpha f+(1-\alpha)h\succ\alpha g+(1-\alpha)h$
+
+\medskip
+\noindent\textbf{(S2) Open Continuity.} For every $f\in\mathcal{F}$,
+the sets $\{g\in\mathcal{F}:f\succ g\}$ and
+$\{g\in\mathcal{F}:g\succ f\}$ are open in $\mathcal{F}$.
+
+\medskip
+\noindent\textbf{(S3) Constant Non-Triviality.} There exist
+$\hat p,\hat q\in\Delta(X)$ such that $\hat p\succ\hat q$, where lotteries
+are identified with the corresponding constant acts.
+
+\medskip
+\noindent\textbf{Proposition 1.} A strict partial
+order $\succ\,\subseteq\mathcal{F}\times\mathcal{F}$ satisfies
+(S1)--(S3) if and only if there exists a nonempty compact and convex set
+$\mathcal{V}\subset C(X\times S)$ and there exist
+$\hat p,\hat q\in\Delta(X)$ such that $U_\nu(\hat p)>U_\nu(\hat q)
+ \qquad\text{for every }\nu\in\mathcal{V}$,
+and, for every $f,g\in\mathcal{F}$,
+\[
+    f\succ g
+    \quad\Longleftrightarrow\quad
+    U_\nu(f)>U_\nu(g)
+    \quad\text{for every }\nu\in\mathcal{V}.
+\]
+
+
+
+The proof builds on the representation results of Hara and Riella (2023), particularly Theorems 1 and 8. Following the construction in the proof of their Theorem 8, we associate the primitive strict partial order with an auxiliary state-dependent preorder satisfying the conditions of their Theorem 1. This yields a compact family of continuous utilities, from which the original strict relation is recovered through strict inequalities. Finally, taking the closed convex hull of the representing family preserves both compactness and the strict representation, yielding the desired compact convex set of utilities.
+
+Building on Proposition 1, we can follow Heller's (2012) approach and apply a minimax theorem to obtain a justifiable-choice representation. The argument begins by constructing an auxiliary relation from the maximal menus associated with each act in the Anscombe--Aumann framework.
+
+\begin{theorem}\label{thm:justifiable-choice}
+The following statements are equivalent:
+\begin{enumerate}
+    \item[(1)] The choice correspondence $c$ satisfies Axioms 1--6.
+    \item[(2)] There exists a nonempty compact and convex set
+    $\mathcal{V}\subseteq C(X\times S)$ such that, for every
+    $A\in\mathcal{A}$,
+    \[
+        c(A)=\bigcup_{\nu\in\mathcal{V}}
+        \operatorname*{arg\,max}_{f\in A} U_\nu(f),
+    \]
+    and there exist $\hat p,\hat q\in\Delta(X)$ such that $U_\nu(\hat p)>U_\nu(\hat q) \text{, } \forall\nu\in\mathcal{V}.$
+\end{enumerate}
+\end{theorem}
+
+\subsection{Multi-Prior Multi-Utility Representation}
+
+\begin{theorem}\label{thm:representation}
+The following statements are equivalent:
+\begin{enumerate}
+    \item[(1)] The choice correspondence $c$ satisfies Axioms 1--7.
+    \item[(2)] There exists a nonempty compact subset
+    $\mathcal{M}\subseteq C(X)\times\Delta(S)$ of utility--probability pairs
+    such that, for every menu $A\in\mathcal{A}$,
+    \[
+        c(A)=\bigcup_{(u,\pi)\in\mathcal{M}}
+        \operatorname*{arg\,max}_{g\in A} V_{\pi,u}(g).
+    \]
+    Moreover, there exist $p^*,p_*\in\Delta(X)$ such that, for every
+    $(u,\pi)\in\mathcal{M}$ and every $f\in\mathcal{F}$,
+    \[
+        V_{\pi,u}(p^*)=1\geq V_{\pi,u}(f)\geq V_{\pi,u}(p_*)=0.
+    \]
+\end{enumerate}
+\end{theorem}
+
+\section{Indecisiveness and Indifference} \label{sec:discussion}
+Write later 
+
+\section{Applications} \label{sec:conclusion}
+Write later 
+
+\section{Appendix} \label{sec:appendix}
+
+\subsection{Proof of Proposition 1}
+
+\begin{proof}[\textnormal{\textit{Necessity}}]
+The necessity of the axioms is standard. Suppose that $\succ$ admits the
+stated representation. Open Continuity
+follows from the compactness of $\mathcal{V}$ and the continuity of
+$U_\nu$. Independence follows from the affinity of each $U_\nu$, and
+Constant Non-Triviality follows from the existence of $\hat p,\hat q$
+such that $U_\nu(\hat p)>U_\nu(\hat q)$ for every $\nu\in\mathcal{V}$.
+\end{proof}
+
+\begin{proof}[\textnormal{\textit{Sufficiency}}]
+Suppose that $\succ$ satisfies (S1)--(S3). By Constant Non-Triviality,
+there exist $\hat p,\hat q\in\Delta(X)$ such that
+$\hat p\succ\hat q$. Define the binary relation $\succsim^*$ on
+$\mathcal{F}$ by
+\[
+    f\succsim^* g
+    \iff
+    \alpha\hat p+(1-\alpha)f
+    \succ
+    \alpha\hat q+(1-\alpha)g
+    \quad\text{for every }\alpha\in(0,1).
+\]
+
+By the argument in the proof of Theorem 8 of Hara and Riella (2023),
+$\succsim^*$ is a preorder satisfying Independence, Continuity, and
+Directional Open-Continuity with respect to the pair
+$(\hat p,\hat q)$. Moreover, $\succ\subseteq\succsim^*$.
+
+We may therefore apply Theorem 1 of Hara and Riella (2023). In particular,
+its proof yields a compact set $\mathcal{V}_0\subset C(X\times S)$ such
+that
+\[
+    f\succsim^* g
+    \iff
+    U_\nu(f)\geq U_\nu(g)
+    \quad\text{for every }\nu\in\mathcal{V}_0,
+\]
+and $U_\nu(\hat p)-U_\nu(\hat q)=1$ for every $\nu\in\mathcal{V}_0$.
+
+We first show that $f\succ g$ implies $U_\nu(f)>U_\nu(g)$ for every
+$\nu\in\mathcal{V}_0$.
+
+Suppose that $f\succ g$. By Independence,
+$f\succ \frac12 f+\frac12 g\succ g$.
+Let $h=\frac12 f+\frac12 g$. By Open Continuity, there exist open
+neighborhoods $O_f$ of $f$ and $O_g$ of $g$ such that $f'\succ h\succ g'$
+for all $(f',g')\in O_f\times O_g$. By transitivity, $f'\succ g'$
+for all $(f',g')\in O_f\times O_g$.
+
+Since the mappings $\alpha\mapsto\alpha\hat q+(1-\alpha)f$
+and $\alpha\mapsto\alpha\hat p+(1-\alpha)g$
+are continuous and converge to $f$ and $g$, respectively, as
+$\alpha\to 0$, there exists $\alpha\in(0,1)$ sufficiently small
+such that $\alpha\hat q+(1-\alpha)f\in O_f$ and
+$\alpha\hat p+(1-\alpha)g\in O_g$. Consequently,
+$\alpha\hat q+(1-\alpha)f\succ\alpha\hat p+(1-\alpha)g$.
+
+Since $\succ\subseteq\succsim^*$, the representation of
+$\succsim^*$ implies that, for every $\nu\in\mathcal{V}_0$,
+\[
+    \alpha U_\nu(\hat q)+(1-\alpha)U_\nu(f)
+    \geq
+    \alpha U_\nu(\hat p)+(1-\alpha)U_\nu(g).
+\]
+Rearranging,
+\[
+    U_\nu(f)-U_\nu(g)
+    \geq
+    \frac{\alpha}{1-\alpha}
+    \left[U_\nu(\hat p)-U_\nu(\hat q)\right].
+\]
+
+By the normalization obtained in the proof of Theorem 1,
+$U_\nu(\hat p)-U_\nu(\hat q)=1$ for every $\nu\in\mathcal{V}_0$.
+Therefore,
+\[
+    U_\nu(f)-U_\nu(g)
+    \geq
+    \frac{\alpha}{1-\alpha}>0
+    \quad\text{for every }\nu\in\mathcal{V}_0.
+\]
+Hence, $f\succ g$ implies $U_\nu(f)>U_\nu(g)$ for every
+$\nu\in\mathcal{V}_0$.
+We now prove the converse implication. Suppose that
+$f,g\in\mathcal{F}$ satisfy $U_\nu(f)>U_\nu(g)$ for every
+$\nu\in\mathcal{V}_0$.
+
+Since $\mathcal{V}_0$ is compact and the map
+$\nu\mapsto U_\nu(f)-U_\nu(g)$ is continuous,
+\[
+    m:=\min_{\nu\in\mathcal{V}_0}
+    \bigl[U_\nu(f)-U_\nu(g)\bigr]>0.
+\]
+Similarly, define $M:=\max_{\nu\in\mathcal{V}_0}
+\bigl[U_\nu(\hat p)-U_\nu(\hat q)\bigr]$.
+By the normalization obtained from Theorem 1, $M=1$.
+
+Choose $\alpha\in(0,1)$ sufficiently small such that $(1-\alpha)m>\alpha M$.
+Then, for every $\nu\in\mathcal{V}_0$, the affinity of $U_\nu$ implies
+\[
+\begin{aligned}
+&U_\nu\bigl(\alpha\hat q+(1-\alpha)f\bigr)
+-U_\nu\bigl(\alpha\hat p+(1-\alpha)g\bigr)\\
+&\quad=(1-\alpha)
+\bigl[U_\nu(f)-U_\nu(g)\bigr]
+-\alpha
+\bigl[U_\nu(\hat p)-U_\nu(\hat q)\bigr]\\
+&\quad\geq(1-\alpha)m-\alpha M>0.
+\end{aligned}
+\]
+
+Hence, by the representation of $\succsim^*$,
+$\alpha\hat q+(1-\alpha)f\succsim^*\alpha\hat p+(1-\alpha)g$.
+
+By the definition of $\succsim^*$, for every $\beta\in(0,1)$,
+\[
+\begin{aligned}
+&\beta\hat p
++(1-\beta)\bigl[\alpha\hat q+(1-\alpha)f\bigr]\\
+&\qquad\succ
+\beta\hat q
++(1-\beta)\bigl[\alpha\hat p+(1-\alpha)g\bigr].
+\end{aligned}
+\]
+
+In particular, let $\beta=\frac{\alpha}{1+\alpha}$.
+Since $\beta=(1-\beta)\alpha$, the preceding comparison becomes
+\[
+\begin{aligned}
+&\beta\hat p
++(1-\beta)\bigl[\alpha\hat q+(1-\alpha)f\bigr]\\
+&\qquad\succ
+\beta\hat q
++(1-\beta)\bigl[\alpha\hat p+(1-\alpha)g\bigr].
+\end{aligned}
+\]
+
+Simplifying,
+\[
+\begin{aligned}
+&\frac{2\alpha}{1+\alpha}
+\left(\frac{\hat p+\hat q}{2}\right)
++\frac{1-\alpha}{1+\alpha}f\\
+&\qquad\succ
+\frac{2\alpha}{1+\alpha}
+\left(\frac{\hat p+\hat q}{2}\right)
++\frac{1-\alpha}{1+\alpha}g.
+\end{aligned}
+\]
+
+Since $\frac{1-\alpha}{1+\alpha}\in(0,1)$, Independence implies $f\succ g$.
+
+Therefore,
+\[
+    f\succ g
+    \iff
+    U_\nu(f)>U_\nu(g)
+    \quad\text{for every }\nu\in\mathcal{V}_0.
+\]
+It remains to show that $\mathcal{V}$ can be chosen convex.
+Let $\mathcal{V}_0$ be the compact representing set obtained
+above and define $\mathcal{V}:=\overline{\operatorname{co}}(\mathcal{V}_0)$,
+where the closure is taken in the supremum norm.
+Since $C(X\times S)$ is a Banach space, the closed convex
+hull of a compact set is compact. Moreover, for any
+$f\succ g$, continuity and compactness imply
+$m:=\min_{\nu\in\mathcal{V}_0}[U_\nu(f)-U_\nu(g)]>0$.
+By linearity in $\nu$, this lower bound is preserved under
+convex combinations and, by continuity, under closure.
+Thus $U_\nu(f)>U_\nu(g)$ for every $\nu\in\mathcal{V}$.
+The converse follows from $\mathcal{V}_0\subseteq\mathcal{V}$.
+Hence, convexification preserves the representation.
+
+\end{proof}
+
+\subsection{Proof of Theorem 1}
+
+For any $f,g\in\mathcal{F}$, define the relation $\succ_c$ by
+\[
+    f\succ_c g
+    \quad\Longleftrightarrow\quad
+    g\notin c(\{f,g\}).
+\]
+
+\begin{claim}
+The relation $\succ_c$ is a strict partial order that satisfies axioms
+(S1)--(S3).
+\end{claim}
+\begin{proof}
+[To complete later.]
+\end{proof}
+
+Now fix $f\in\mathcal{F}$ and $A\in\mathcal{A}$ such that $f\in c(A)$.
+
+\begin{claim}
+There exists $A_f\in\mathcal{A}$ such that $f\in c(A_f)$ and, for every
+$B\in\mathcal{A}$ such that $f\in c(B)$, we have $B\subseteq A_f$.
+\end{claim}
+\begin{proof}
+[To complete later.]
+\end{proof}
+
+\begin{claim}
+Both $A_f$ and $\mathcal{F}\setminus A_f$ are convex.
+\end{claim}
+\begin{proof}
+[To complete later.]
+\end{proof}
+
+By Claim 1 and Proposition 1, let $\mathcal{V}\subseteq C(X\times S)$
+be a nonempty compact and convex set representing $\succ_c$.
+By Claim 2, for any fixed $f\in c(A)$, there exists $A_f$ such that
+$f\in c(A_f)$ and $A\subseteq A_f$. Pseudo-WARP implies that, for every
+$g\in A_f$, $f\in c(\{f,g\})$. Therefore,
+\[
+\begin{aligned}
+    f\in c(A)
+    &\implies \forall g\in A_f,\quad g\not\succ_c f\\
+    &\implies \forall g\in A_f,\ \exists\nu\in\mathcal{V}:\quad
+        U_\nu(f)\geq U_\nu(g)\\
+    &\iff \min_{g\in A_f}\max_{\nu\in\mathcal{V}}
+        \bigl[U_\nu(f)-U_\nu(g)\bigr]\geq 0.
+\end{aligned}
+\]
+
+Since $A_f$ and $\mathcal{V}$ are compact and convex, and
+$U_\nu(f)-U_\nu(g)$ is continuous and affine in each variable,
+Sion's Minimax Theorem gives
+\[
+    \min_{g\in A_f}\max_{\nu\in\mathcal{V}}
+    \bigl[U_\nu(f)-U_\nu(g)\bigr]
+    =\max_{\nu\in\mathcal{V}}\min_{g\in A_f}
+    \bigl[U_\nu(f)-U_\nu(g)\bigr].
+\]
+It follows that
+\[
+    f\in c(A)
+    \implies \exists\nu\in\mathcal{V},\ \forall g\in A_f,\quad
+    U_\nu(f)\geq U_\nu(g).
+\]
+And therefore,
+\[
+    c(A)\subseteq\bigcup_{(\pi,u)\in\mathcal{M}}
+    \operatorname*{arg\,max}_{g\in A} V_{\pi,u}(g).
+\]
+
+\singlespacing
+\setlength\bibsep{0pt}
+\bibliographystyle{my-style}
+\bibliography{Placeholder}
+
+\end{document}
