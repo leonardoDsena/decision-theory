@@ -145,9 +145,22 @@ No-Hedging requires that adding a mixture of two acts already available in a men
 
 \section{Representation}
 
-\subsection{Additively Separable Multi-Utility Representation}
+\subsection{Additively Separable Expected Multi-Utility Representation}
 
-For this subsection, let $X$ be a compact metric prize space. Consider a strict relation $\succ\,\subseteq\mathcal{F}\times\mathcal{F}$
+This subsection axiomatizes state-dependent expected multi-utility choice
+for a compact metric prize space $X$. Related representations with a
+preorder as the primitive are obtained by \citet{ok2012} under Independence
+and Continuity for finite prize spaces and extended by \citet{riella2015}
+to compact metric spaces.
+
+Our choice-based analysis requires an auxiliary representation of a strict
+partial order by a compact, convex set of continuous state-dependent
+utilities. While \citet{galaabaatar2012} study related representations in
+finite-dimensional spaces, our setting allows a compact metric prize space.
+Proposition~1 establishes the required result by adapting the approach of
+\citet{hara2023}.
+
+Consider a strict relation $\succ\,\subseteq\mathcal{F}\times\mathcal{F}$
 and the following axioms:
 
 \medskip
@@ -183,7 +196,7 @@ and, for every $f,g\in\mathcal{F}$,
 
 
 
-The proof builds on the representation results of Hara and Riella (2023), particularly Theorems 1 and 8. Following the construction in the proof of their Theorem 8, we associate the primitive strict partial order with an auxiliary state-dependent preorder satisfying the conditions of their Theorem 1. This yields a compact family of continuous utilities, from which the original strict relation is recovered through strict inequalities. Finally, taking the closed convex hull of the representing family preserves both compactness and the strict representation, yielding the desired compact convex set of utilities.
+The proof, given in the Appendix, adapts Theorems 1 and 8 of \citet{hara2023}.
 
 Building on Proposition 1, we can follow Heller's (2012) approach and apply a minimax theorem to obtain a justifiable-choice representation. The argument begins by constructing an auxiliary relation from the maximal menus associated with each act in the Anscombe--Aumann framework.
 
@@ -206,7 +219,7 @@ The following statements are equivalent:
 \end{enumerate}
 \end{theorem}
 
-\subsection{Multi-Prior Multi-Utility Representation}
+\subsection{Multi-Prior Expected Multi-Utility Representation}
 
 \begin{theorem}\label{thm:representation}
 The following statements are equivalent:
@@ -530,6 +543,11 @@ And therefore,
 Aizerman, M., and A. Malishevski (1981).
 General theory of best variants choice: Some aspects.
 \textit{IEEE Transactions on Automatic Control}, 26(5), 1030--1040.
+
+\bibitem[Galaabaatar and Karni(2012)]{galaabaatar2012}
+Galaabaatar, T., and E. Karni (2012).
+Expected multi-utility representations.
+\textit{Mathematical Social Sciences}, 64(3), 242--246.
 
 \bibitem[Hara and Riella(2023)]{hara2023}
 Hara, K., and G. Riella (2023).
