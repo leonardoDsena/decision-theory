@@ -196,9 +196,9 @@ and, for every $f,g\in\mathcal{F}$,
 
 
 
-The proof, given in the Appendix, adapts Theorems 1 and 8 of Hara and Riella (2023).
+The proof, given in the Appendix, follows the same path as in Theorems 8 of Hara and Riella (2023), but removing the axiom of One-Side Monotonicity over the strict partial order. That allows the definition of an appropriate preorder to apply the theorem 1 from the previously mentioned paper.
 
-Building on Proposition 1, we can follow Heller's (2012) approach and apply a minimax theorem to obtain a justifiable-choice representation. The argument begins by constructing an auxiliary relation from the maximal menus associated with each act in the Anscombe--Aumann framework.
+Building on Proposition 1, we can follow Heller's (2012) approach and apply a minimax theorem to obtain a justifiable choice representation. The argument begins by constructing an auxiliary relation from the maximal menus associated with each act in the Anscombe--Aumann framework.
 
 \begin{theorem}\label{thm:justifiable-choice}
 The following statements are equivalent:
@@ -272,7 +272,7 @@ preferences, each of which induces a probability--utility pair by satisfying
 Independence, Continuity, and Monotonicity, and an alternative is chosen
 whenever it is optimal according to at least one such preference.
 
-Although the proof below does not proceed entirely through this route,
+Although the proof on the Appendix does not proceed entirely through this route,
 maximal menus suggest an alternative interpretation. For each act that is
 chosen from a menu, one may associate a maximal menu supporting that choice
 and attempt to construct a complete Anscombe--Aumann preference whose lower
@@ -280,30 +280,20 @@ contour through the chosen act coincides with that maximal menu. Such a
 construction provides a useful way of understanding each
 probability--utility pair as a possible rationale behind observed choice.
 
-The representation also clarifies how richer menus can help distinguish
-indecisiveness from indifference. Consider two acts $f$ and $g$, and their
-mixture $m=\lambda f+(1-\lambda)g$. If $f$ is optimal under one
-probability--utility pair and $g$ under another, both may be chosen from
-$\{f,g\}$, while $m$ need not be chosen from $\{f,g,m\}$. By contrast,
-suppose that a single probability--utility pair $(\pi,u)$ induces
-indifference between $f$ and $g$, so that $V_{\pi,u}(f)=V_{\pi,u}(g)$.
-By affinity, $V_{\pi,u}(m)=V_{\pi,u}(f)=V_{\pi,u}(g)$, so the same
-complete Anscombe--Aumann preference also ranks $m$ as optimal whenever it
-ranks both $f$ and $g$ as optimal. Choices from non-binary menus can
-therefore contain information that binary choice alone cannot reveal about
-whether multiplicity reflects indifference within a single
-probability--utility pair or disagreement across different
-probability--utility pairs.
+The representation also shows how non-binary menus can separate
+indecisiveness from indifference. Let $m=\lambda f+(1-\lambda)g$. Since each
+$V_{\pi,u}$ is affine, $V_{\pi,u}(m)$ lies strictly between $V_{\pi,u}(f)$
+and $V_{\pi,u}(g)$ unless $V_{\pi,u}(f)=V_{\pi,u}(g)$. A pair that strictly
+ranks $f$ and $g$ therefore never makes $m$ optimal, and $m$ is chosen from
+$\{f,g,m\}$ if and only if some pair is indifferent between $f$ and $g$.
 
-Finally, the model does not impose a general preference for hedging.
-No-Hedging protects previously chosen alternatives when mixtures are added
-to a menu, but it does not require the mixture itself to be chosen.
-Consequently, acts that are separately justified by different
-probability--utility pairs may both be chosen while their mixture is
-rejected. Such behavior may appear ambiguity-seeking from the perspective
-of observed choice, even though it arises here from disagreement across
-different probability--utility pairs rather than from a primitive
-assumption of ambiguity seeking.
+Binary choice cannot tell the two cases apart: $f,g\in c(\{f,g\})$ whether
+they are indifferent or ranked oppositely by different pairs. Adding $m$ to
+the menu does. If $m$ is rejected, every pair has a strict ranking and the
+two sides disagree, so the decision maker is indecisive between $f$ and $g$.
+If $m$ is chosen, some pair is indifferent, though others may still disagree.
+The test is thus conclusive for indecisiveness and only suggestive for
+indifference.
 
 \section{Indecisiveness and Indifference} \label{sec:discussion}
 Write later 
