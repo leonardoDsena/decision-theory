@@ -98,7 +98,7 @@ For a prior $\pi\in\Delta(S)$ and a state-independent utility index $u\in C(X)$,
 \[
     V_{\pi,u}(f):=\sum_{s\in S}\pi(s)\int_X u(x)\,df(s)(x).
 \]
-Here, $\Delta(S)$ is the simplex of probability distributions on $S$, endowed with its Euclidean topology. The space $C(X)\times\Delta(S)$ carries the product of the supremum-norm topology and this topology. Since $u$ is continuous and $X$ is compact, the integrals are well defined and $V_{\pi,u}$ is continuous and affine on $\mathcal{F}$. For a constant act $p\in\Delta(X)$, $V_{\pi,u}(p)=\int_X u(x)\,dp(x)$. When $X$ is finite, both $U_\nu$ and $V_{\pi,u}$ reduce to the corresponding finite sums.
+Here, $\Delta(S)$ is the simplex of probability distributions on $S$, endowed with its Euclidean topology. The space $\Delta(S)\times C(X)$ carries the product of this topology and the supremum-norm topology. Since $u$ is continuous and $X$ is compact, the integrals are well defined and $V_{\pi,u}$ is continuous and affine on $\mathcal{F}$. For a constant act $p\in\Delta(X)$, $V_{\pi,u}(p)=\int_X u(x)\,dp(x)$. When $X$ is finite, both $U_\nu$ and $V_{\pi,u}$ reduce to the corresponding finite sums.
 
 \subsection{Axioms}
 
@@ -208,16 +208,16 @@ The following statements are equivalent:
 \begin{enumerate}
     \item[(1)] The choice correspondence $c$ satisfies Axioms 1--7.
     \item[(2)] There exists a nonempty compact subset
-    $\mathcal{M}\subseteq C(X)\times\Delta(S)$ of utility--probability pairs
+    $\mathcal{M}\subseteq\Delta(S)\times C(X)$ of probability--utility pairs
     such that, for every menu $A\in\mathcal{A}$,
     \[
-        c(A)=\bigcup_{(u,\pi)\in\mathcal{M}}
+        c(A)=\bigcup_{(\pi,u)\in\mathcal{M}}
         \operatorname*{arg\,max}_{g\in A} V_{\pi,u}(g).
     \]
-    Moreover, there exist $p^*,p_*\in\Delta(X)$ such that, for every
-    $(u,\pi)\in\mathcal{M}$ and every $f\in\mathcal{F}$,
+    Moreover, there exist $\hat p,\hat q\in\Delta(X)$ such that
     \[
-        V_{\pi,u}(p^*)=1\geq V_{\pi,u}(f)\geq V_{\pi,u}(p_*)=0.
+        \int_X u(x)\,d\hat p(x)>\int_X u(x)\,d\hat q(x)
+        \quad\text{for every }(\pi,u)\in\mathcal{M}.
     \]
 \end{enumerate}
 \end{theorem}
@@ -304,7 +304,7 @@ Rearranging,
     \left[U_\nu(\hat p)-U_\nu(\hat q)\right].
 \]
 
-By the normalization obtained in the proof of Theorem 1,
+By the normalization obtained in the proof of Theorem 1 of Hara and Riella (2023), we have
 $U_\nu(\hat p)-U_\nu(\hat q)=1$ for every $\nu\in\mathcal{V}_0$.
 Therefore,
 \[
