@@ -33,7 +33,7 @@
 
 \begin{document}
 
-\title{The Pseudo-Rational Choice with Multiple Tastes and Beliefs}
+\title{Pseudo-Rational Choice with Multiple Tastes and Beliefs}
 \author{Gil Riella\thanks{Department of Economics, University of Brasília} \and Leonardo Sampaio\thanks{Department of Economics, University of Brasília}}
 \date{\today}
 \maketitle
@@ -144,7 +144,7 @@ No-Hedging requires that adding a mixture of two acts already available in a men
 
 \section{Representation}
 
-\subsection{Additively Separable Multi-utility Representation}
+\subsection{Additively Separable Multi-Utility Representation}
 
 For this subsection, let $X$ be a compact metric prize space. Consider a strict relation $\succ\,\subseteq\mathcal{F}\times\mathcal{F}$
 and the following axioms:
@@ -427,18 +427,50 @@ The relation $\succ_c$ is a strict partial order that satisfies axioms
 Now fix $f\in\mathcal{F}$ and $A\in\mathcal{A}$ such that $f\in c(A)$.
 
 \begin{claim}
-There exists $A_f\in\mathcal{A}$ such that $f\in c(A_f)$ and, for every
-$B\in\mathcal{A}$ such that $f\in c(B)$, we have $B\subseteq A_f$.
+For every $A\in\mathcal{A}$ and $f\in c(A)$, the set
+$\{B\in\mathcal{A}: A\subseteq B\text{ and }f\in c(B)\}$ has a maximal
+element, $A_f$, with respect to set inclusion.
 \end{claim}
 \begin{proof}
-[To complete later.]
+Suppose $\mathcal{B}$ is a subset of
+$\{B\in\mathcal{A}: A\subseteq B\text{ and }f\in c(B)\}$ linearly ordered
+by $\supseteq$. Let $\bar{B}:=\operatorname{cl}(\bigcup\mathcal{B})$.
+This implies that there exists a sequence $(B^m)$ of finite subsets of
+$\bar{B}$ such that $B^m\to\bar{B}$. By the definition of $\bar{B}$, we
+can find such a sequence with $B^m\subseteq\bigcup\mathcal{B}$ for every
+$m\in\mathbb{N}$. Finally, since each $B^m$ is finite and $\mathcal{B}$
+is linearly ordered by $\supseteq$, we can find, for each $m\in\mathbb{N}$,
+a set $\bar{B}^m\in\mathcal{B}$ with $B^m\subseteq\bar{B}^m$. But then,
+$\bar{B}^m\to\bar{B}$ and $f\in c(\bar{B}^m)$ for every
+$m\in\mathbb{N}$. Continuity implies that $f\in c(\bar{B})$. That is,
+$\bar{B}$ is an upper bound for $\mathcal{B}$. Now Zorn's lemma implies
+that the collection
+$\{B\in\mathcal{A}: A\subseteq B\text{ and }f\in c(B)\}$ has a maximal
+element.
 \end{proof}
 
 \begin{claim}
 Both $A_f$ and $\mathcal{F}\setminus A_f$ are convex.
 \end{claim}
 \begin{proof}
-[To complete later.]
+Since $f\in c(A_f)$, if $g,h\in A_f$ and $\alpha\in(0,1)$,
+No-Hedging and maximality of $A_f$ immediately imply that
+$\alpha g+(1-\alpha)h\in A_f$. Thus, $A_f$ is convex.
+
+To prove that $\mathcal{F}\setminus A_f$ is convex, suppose that
+$g\notin A_f$ and $h\notin A_f$, and let $\alpha\in(0,1)$.
+By maximality of $A_f$, $f\notin c(A_f\cup\{g\})$ and
+$f\notin c(A_f\cup\{h\})$. Therefore,
+\[
+    f\notin c(A_f\cup\{g\})\cup c(A_f\cup\{h\}).
+\]
+Indirect Ambiguity Aversion then implies that
+\[
+    f\notin c\bigl(A_f\cup\{\alpha g+(1-\alpha)h\}\bigr).
+\]
+Since $f\in c(A_f)$, it follows that
+$\alpha g+(1-\alpha)h\notin A_f$.
+Hence, $\mathcal{F}\setminus A_f$ is convex.
 \end{proof}
 
 By Claim 1 and Proposition 1, let $\mathcal{V}\subseteq C(X\times S)$
@@ -479,8 +511,39 @@ And therefore,
 \]
 
 \singlespacing
-\setlength\bibsep{0pt}
-\bibliographystyle{my-style}
-\bibliography{Placeholder}
+\setlength\bibsep{0.8em}
+\begin{thebibliography}{99}
+
+\bibitem[Aizerman and Malishevski(1981)]{aizerman1981}
+Aizerman, M., and A. Malishevski (1981).
+General theory of best variants choice: Some aspects.
+\textit{IEEE Transactions on Automatic Control}, 26(5), 1030--1040.
+
+\bibitem[Hara and Riella(2023)]{hara2023}
+Hara, K., and G. Riella (2023).
+Multiple tastes and beliefs with an infinite prize space.
+\textit{Economic Theory}, 76(2), 417--444.
+
+\bibitem[Heller(2012)]{heller2012}
+Heller, Y. (2012).
+Justifiable choice.
+\textit{Games and Economic Behavior}, 76(2), 375--390.
+
+\bibitem[Ok et~al.(2012)Ok, Ortoleva, and Riella]{ok2012}
+Ok, E. A., P. Ortoleva, and G. Riella (2012).
+Incomplete preferences under uncertainty: Indecisiveness in beliefs versus tastes.
+\textit{Econometrica}, 80(4), 1791--1808.
+
+\bibitem[Riella(2015)]{riella2015}
+Riella, G. (2015).
+On the representation of incomplete preferences under uncertainty with indecisiveness in tastes and beliefs.
+\textit{Economic Theory}, 58(3), 571--600.
+
+\bibitem[Safonov(n.d.)]{safonov}
+Safonov, E. (n.d.).
+Framing of ambiguity.
+Available at SSRN: \url{https://ssrn.com/abstract=5260555}.
+
+\end{thebibliography}
 
 \end{document}
