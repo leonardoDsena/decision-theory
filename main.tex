@@ -1,6 +1,7 @@
 \documentclass[11pt]{article}
 
 \usepackage{amssymb,amsmath,amsfonts,eurosym,geometry,ulem,graphicx,caption,color,setspace,sectsty,comment,footmisc,caption,natbib,pdflscape,subfigure,array,hyperref}
+\usepackage{dsfont}
 
 \normalem
 
@@ -216,7 +217,7 @@ The following statements are equivalent:
     \]
     Moreover, there exist $\hat p,\hat q\in\Delta(X)$ such that
     \[
-        \int_X u(x)\,d\hat p(x)>\int_X u(x)\,d\hat q(x)
+        \mathds{E}_{\hat p}(u)>\mathds{E}_{\hat q}(u)
         \quad\text{for every }(\pi,u)\in\mathcal{M}.
     \]
 \end{enumerate}
