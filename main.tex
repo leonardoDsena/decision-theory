@@ -263,38 +263,47 @@ The following statements are equivalent:
 \end{enumerate}
 \end{theorem}
 
-Equivalently, Theorem~2 says that an act is chosen if and only if it is
-justified by at least one admissible probability--utility pair. This is
-a pseudo-rational choice model in the sense of Aizerman and Malishevski
-(1981): the decision maker behaves as if endowed with a collection of
-complete Anscombe--Aumann preferences, each satisfying Independence,
-Continuity, and Monotonicity, and chooses an alternative whenever it is
-optimal under at least one such preference.
+Equivalently, Theorem~2 says that an act is chosen if and only if it can be
+justified by at least one probability--utility pair in the representing
+set. The model can therefore be interpreted as a pseudo-rational choice
+model in the sense of Aizerman and Malishevskii (1981): the decision maker
+behaves as if endowed with a collection of complete Anscombe--Aumann
+preferences, each of which induces a probability--utility pair by satisfying
+Independence, Continuity, and Monotonicity, and an alternative is chosen
+whenever it is optimal according to at least one such preference.
 
-Although the proof does not proceed entirely through this route, maximal
-menus suggest another interpretation. For each chosen act, one may
-associate a maximal menu supporting its choice and seek a complete
-Anscombe--Aumann preference whose lower contour through that act coincides
-with the maximal menu. Each probability--utility pair can thus be viewed
-as a possible rationale for observed choice.
+Although the proof below does not proceed entirely through this route,
+maximal menus suggest an alternative interpretation. For each act that is
+chosen from a menu, one may associate a maximal menu supporting that choice
+and attempt to construct a complete Anscombe--Aumann preference whose lower
+contour through the chosen act coincides with that maximal menu. Such a
+construction provides a useful way of understanding each
+probability--utility pair as a possible rationale behind observed choice.
 
-Richer menus can also help distinguish indecisiveness from indifference.
-Consider acts $f,g$ and their mixture $m=\lambda f+(1-\lambda)g$, with
-$\lambda\in(0,1)$. If $f$ is optimal under one admissible pair and $g$
-under another, both may be chosen from $\{f,g\}$ while $m$ is rejected
-from $\{f,g,m\}$. By contrast, if an admissible preference is indifferent
-between $f$ and $g$, affinity makes it indifferent to $m$ as well, so the
-mixture is also justified. Non-binary menus can therefore reveal whether
-multiplicity reflects indifference within a rationale or disagreement
-across rationales in ways that binary choice alone cannot.
+The representation also clarifies how richer menus can help distinguish
+indecisiveness from indifference. Consider two acts $f$ and $g$, and their
+mixture $m=\lambda f+(1-\lambda)g$. If $f$ is optimal under one
+probability--utility pair and $g$ under another, both may be chosen from
+$\{f,g\}$, while $m$ need not be chosen from $\{f,g,m\}$. By contrast,
+suppose that a single probability--utility pair $(\pi,u)$ induces
+indifference between $f$ and $g$, so that $V_{\pi,u}(f)=V_{\pi,u}(g)$.
+By affinity, $V_{\pi,u}(m)=V_{\pi,u}(f)=V_{\pi,u}(g)$, so the same
+complete Anscombe--Aumann preference also ranks $m$ as optimal whenever it
+ranks both $f$ and $g$ as optimal. Choices from non-binary menus can
+therefore contain information that binary choice alone cannot reveal about
+whether multiplicity reflects indifference within a single
+probability--utility pair or disagreement across different
+probability--utility pairs.
 
-Finally, the model imposes no general preference for hedging. No-Hedging
-protects previously chosen alternatives when mixtures are added, without
-requiring the mixture itself to be chosen. Acts justified by different
-probability--utility pairs may therefore both be chosen while their
-mixture is rejected. This may appear ambiguity-seeking in observed
-choice, although it arises from the coexistence of distinct admissible
-rationales rather than a primitive assumption of ambiguity seeking.
+Finally, the model does not impose a general preference for hedging.
+No-Hedging protects previously chosen alternatives when mixtures are added
+to a menu, but it does not require the mixture itself to be chosen.
+Consequently, acts that are separately justified by different
+probability--utility pairs may both be chosen while their mixture is
+rejected. Such behavior may appear ambiguity-seeking from the perspective
+of observed choice, even though it arises here from disagreement across
+different probability--utility pairs rather than from a primitive
+assumption of ambiguity seeking.
 
 \section{Indecisiveness and Indifference} \label{sec:discussion}
 Write later 
