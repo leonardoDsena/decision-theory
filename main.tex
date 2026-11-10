@@ -481,6 +481,8 @@ Hence, convexification preserves the representation.
 
 \subsection{Proof of Theorem 1}
 
+\textit{Sufficiency.} Suppose that Axioms 1--6 hold.
+
 For any $f,g\in\mathcal{F}$, define the relation $\succ_c$ by
 \[
     f\succ_c g
@@ -554,6 +556,21 @@ Hence, $\mathcal{F}\setminus A_f$ is convex.
 
 By Claim 1 and Proposition 1, let $\mathcal{V}\subseteq C(X\times S)$
 be a nonempty compact and convex set representing $\succ_c$.
+We may normalize this family so that
+\[
+ U_\nu(p_*)=0,\qquad U_\nu(p^*)=1
+ \qquad(\nu\in\mathcal V).
+\]
+Indeed, $p^*\succ_c p_*$, so the normalizing denominators are
+positive and bounded away from zero on the compact family.
+Normalize each utility and take the closed convex hull again;
+compactness and the strict binary representation are preserved.
+Applying Best and Worst to singleton menus and letting the mixture
+weight on the endpoint tend to zero gives
+\[
+ 0\leq U_\nu(g)\leq1
+ \qquad(g\in\mathcal F,\ \nu\in\mathcal V).
+\]
 By Claim 2, for any fixed $f\in c(A)$, there exists $A_f$ such that
 $f\in c(A_f)$ and $A\subseteq A_f$. Pseudo-WARP implies that, for every
 $g\in A_f$, $f\in c(\{f,g\})$. Therefore,
@@ -583,11 +600,147 @@ It follows that
     \implies \exists\nu\in\mathcal{V},\ \forall g\in A_f,\quad
     U_\nu(f)\geq U_\nu(g).
 \]
-And therefore,
+Consequently,
 \[
     c(A)\subseteq\bigcup_{\nu\in\mathcal{V}}
     \operatorname*{arg\,max}_{g\in A} U_\nu(g).
 \]
+
+The reverse inclusion need not hold for the whole convex family
+$\mathcal V$. We next select utilities that justify the original
+choice without introducing additional choices on any other menu.
+
+Fix a constant act $q$ whose lottery has full support on $X$.
+Such a lottery exists because $X$ is compact metrizable: assign positive
+probabilities to the points of a countable dense subset.
+For a fixed $\lambda\in(0,1)$, put
+\[
+ T_\lambda(g)=\lambda g+(1-\lambda)q,\qquad
+ f_\lambda=T_\lambda(f),\qquad B_\lambda=T_\lambda(A_f).
+\]
+Independence gives $f_\lambda\in c(B_\lambda)$.
+Let $M_\lambda$ be a maximal compact menu containing $B_\lambda$
+and choosing $f_\lambda$. By the preceding claims, both $M_\lambda$
+and its complement are convex. Moreover,
+\begin{equation}\label{eq:transformed-maximal-menu}
+ M_\lambda\cap T_\lambda(\mathcal F)=T_\lambda(A_f).
+\end{equation}
+To prove this, write the intersection as $T_\lambda(B)$.
+Since $T_\lambda$ is a homeomorphism onto its compact image, $B$ is
+compact and contains $A_f$. Pseudo-WARP implies contraction of choice:
+if $C\subseteq D$ and $g\in c(D)\cap C$, then $g\in c(C)$.
+Thus $f_\lambda\in c(T_\lambda(B))$, and Independence gives
+$f\in c(B)$. Maximality of $A_f$ implies $B=A_f$.
+
+Apply the preceding minimax argument to $M_\lambda$ and $f_\lambda$.
+There is $\nu\in\mathcal V$ such that, writing $a=U_\nu(f_\lambda)$,
+\begin{equation}\label{eq:full-support-support}
+ M_\lambda\subseteq\{g\in\mathcal F:U_\nu(g)\leq a\}.
+\end{equation}
+Every $f_\lambda(s)$ has full support. Since $U_\nu$ is nonconstant,
+\[
+ \min_{g\in\mathcal F}U_\nu(g)<a<
+ \max_{g\in\mathcal F}U_\nu(g).
+\]
+Indeed, the extrema are the sums of the statewise extrema of
+$\nu(\cdot,s)$; integration against a full-support probability is
+strictly between the extrema of each nonconstant continuous coordinate.
+In particular, $0<a<1$.
+
+We claim that equality holds in \eqref{eq:full-support-support}.
+Suppose first that $g\notin M_\lambda$ and $U_\nu(g)<a$.
+Probabilities dominated by a finite multiple of a full-support
+probability $\mu$ are weakly dense in $\Delta(X)$. To see this,
+approximate a probability by a finite-support probability and replace
+each point mass at $x$ by
+$\mu(\cdot\cap B(x,\epsilon))/\mu(B(x,\epsilon))$.
+The resulting probabilities have bounded densities with respect to
+$\mu$ and approximate the point masses as $\epsilon\downarrow0$.
+Applying this in every state, and using the openness of
+$\mathcal F\setminus M_\lambda$, we can choose $\tilde g\notin M_\lambda$
+such that $U_\nu(\tilde g)<a$ and
+\[
+ \tilde g(s)\leq C f_\lambda(s)\qquad(s\in S)
+\]
+for some finite $C$. For sufficiently small $t>0$,
+$h=(1+t)f_\lambda-t\tilde g$ is therefore an act, and
+\[
+ U_\nu(h)=a+t[a-U_\nu(\tilde g)]>a.
+\]
+By \eqref{eq:full-support-support}, $h\notin M_\lambda$.
+But $f_\lambda=\frac{t}{1+t}\tilde g+\frac{1}{1+t}h$,
+contradicting convexity of the complement. Hence every exterior act
+has utility at least $a$.
+If $g\notin M_\lambda$ had $U_\nu(g)=a$, then
+$(1-t)g+tp_*$ would remain outside the closed menu $M_\lambda$
+for sufficiently small $t>0$, while its utility would be $(1-t)a<a$.
+This is impossible. We have proved
+\begin{equation}\label{eq:exact-transformed-contour}
+ M_\lambda=\{g\in\mathcal F:U_\nu(g)\leq a\}.
+\end{equation}
+Combining this identity with \eqref{eq:transformed-maximal-menu}
+and affinity yields
+\[
+ A_f=\{g\in\mathcal F:U_\nu(g)\leq U_\nu(f)\}.
+\]
+
+Next, every act $g$ with $U_\nu(g)=a$ is chosen from $M_\lambda$.
+For $t\in(0,1)$, put $g_t=(1-t)g+tp^*$.
+Since $U_\nu(g_t)>a$, maximality implies
+$f_\lambda\notin c(M_\lambda\cup\{g_t\})$.
+If $g_t$ were also unchosen, then
+$c(M_\lambda\cup\{g_t\})\subseteq M_\lambda$;
+Pseudo-WARP and $f_\lambda\in c(M_\lambda)$ would give a contradiction.
+Thus $g_t\in c(M_\lambda\cup\{g_t\})$, and Continuity gives
+\begin{equation}\label{eq:contour-chosen}
+ \{g:U_\nu(g)=a\}\subseteq c(M_\lambda).
+\end{equation}
+
+Now let $B\in\mathcal A$ and $g\in\operatorname*{arg\,max}_{h\in B}U_\nu(h)$.
+Choose $\alpha\in(0,1]$ and $j\in\{p^*,p_*\}$ so that
+$U_\nu(\alpha g+(1-\alpha)j)=a$.
+If $U_\nu(g)>a$, take $j=p_*$ and $\alpha=a/U_\nu(g)$;
+if $U_\nu(g)<a$, take $j=p^*$ and
+$\alpha=(1-a)/(1-U_\nu(g))$; otherwise take $\alpha=1$.
+By \eqref{eq:exact-transformed-contour},
+$\alpha B+(1-\alpha)j\subseteq M_\lambda$.
+Equation~\eqref{eq:contour-chosen}, contraction, and Independence imply
+$g\in c(B)$. Thus the selected $\nu$ satisfies
+\[
+ \operatorname*{arg\,max}_{g\in B}U_\nu(g)\subseteq c(B)
+ \qquad\text{for every }B\in\mathcal A.
+\]
+It also makes the original $f$ optimal on $A\subseteq A_f$.
+
+Define
+\[
+ \mathcal W=\left\{\nu\in\mathcal V:
+ \operatorname*{arg\,max}_{g\in B}U_\nu(g)\subseteq c(B)
+ \text{ for every }B\in\mathcal A\right\}.
+\]
+For every $A$ and $f\in c(A)$, the construction supplies such a
+$\nu\in\mathcal W$ justifying $f$. Consequently $\mathcal W$ is
+nonempty and
+\[
+ c(A)=\bigcup_{\nu\in\mathcal W}
+ \operatorname*{arg\,max}_{g\in A}U_\nu(g).
+\]
+To verify compactness, suppose $\nu_n\in\mathcal W$ and
+$\nu_n\to\nu\in\mathcal V$ in the supremum norm.
+Fix $B\in\mathcal A$ and $g\in\operatorname*{arg\,max}_{h\in B}U_\nu(h)$.
+If $U_\nu(g)<1$, then for fixed $t>0$ the act
+$g_t=(1-t)g+tp^*$ has strictly higher utility than every member of $B$.
+Uniform convergence implies the same inequality under $U_{\nu_n}$
+for all sufficiently large $n$. Since $\nu_n\in\mathcal W$,
+$g_t\in c(B\cup\{g_t\})$. Letting $t\downarrow0$ and using
+Continuity gives $g\in c(B)$.
+If $U_\nu(g)=1$, first replace $B,g$ by
+$\frac12 B+\frac12p_*,\frac12g+\frac12p_*$, apply the preceding case,
+and use Independence. Hence $\nu\in\mathcal W$, so $\mathcal W$ is
+closed in the compact set $\mathcal V$ and therefore compact.
+The common normalization gives the required endpoints
+$\hat p=p^*$ and $\hat q=p_*$. This completes the sufficiency argument.
+\hfill$\square$
 
 \singlespacing
 \setlength\bibsep{0.8em}
