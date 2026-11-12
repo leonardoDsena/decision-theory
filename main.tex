@@ -575,22 +575,22 @@ Thus $f_\lambda\in c(T_\lambda(B))$, and Independence gives
 $f\in c(B)$. Maximality of $M$ implies $B=M$.
 
 Apply the preceding minimax argument to $M_\lambda$ and $f_\lambda$.
-There is $\nu\in\mathcal V$ such that, writing $a=U_\nu(f_\lambda)$,
+There is $\nu\in\mathcal V$ such that, writing $\bar{u}=U_\nu(f_\lambda)$,
 \begin{equation}\label{eq:full-support-support}
- M_\lambda\subseteq\{g\in\mathcal F:U_\nu(g)\leq a\}.
+ M_\lambda\subseteq\{g\in\mathcal F:U_\nu(g)\leq\bar{u}\}.
 \end{equation}
 Every $f_\lambda(s)$ has full support. Since $U_\nu$ is nonconstant,
 \[
- \min_{g\in\mathcal F}U_\nu(g)<a<
+ \min_{g\in\mathcal F}U_\nu(g)<\bar{u}<
  \max_{g\in\mathcal F}U_\nu(g).
 \]
 Indeed, the extrema are the sums of the statewise extrema of
 $\nu(\cdot,s)$; integration against a full-support probability is
 strictly between the extrema of each nonconstant continuous coordinate.
-In particular, $0<a<1$.
+In particular, $0<\bar{u}<1$.
 
 We claim that equality holds in \eqref{eq:full-support-support}.
-Suppose first that $g\notin M_\lambda$ and $U_\nu(g)<a$.
+Suppose first that $g\notin M_\lambda$ and $U_\nu(g)<\bar{u}$.
 Probabilities dominated by a finite multiple of a full-support
 probability $\mu$ are weakly dense in $\Delta(X)$. To see this,
 approximate a probability by a finite-support probability and replace
@@ -600,21 +600,21 @@ The resulting probabilities have bounded densities with respect to
 $\mu$ and approximate the point masses as $\epsilon\downarrow0$.
 Applying this in every state, and using the openness of
 $\mathcal F\setminus M_\lambda$, we can choose $\tilde g\notin M_\lambda$
-such that $U_\nu(\tilde g)<a$ and
+such that $U_\nu(\tilde g)<\bar{u}$ and
 $\tilde g(s)\leq C f_\lambda(s)\qquad(s\in S)$
 for some finite $C$. For sufficiently small $t>0$,
 $h=(1+t)f_\lambda-t\tilde g$ is therefore an act, and
-$U_\nu(h)=a+t[a-U_\nu(\tilde g)]>a$.
+$U_\nu(h)=\bar{u}+t[\bar{u}-U_\nu(\tilde g)]>\bar{u}$.
 By \eqref{eq:full-support-support}, $h\notin M_\lambda$.
 But $f_\lambda=\frac{t}{1+t}\tilde g+\frac{1}{1+t}h$,
 contradicting convexity of the complement. Hence every exterior act
-has utility at least $a$.
-If $g\notin M_\lambda$ had $U_\nu(g)=a$, then
+has utility at least $\bar{u}$.
+If $g\notin M_\lambda$ had $U_\nu(g)=\bar{u}$, then
 $(1-t)g+tp_*$ would remain outside the closed menu $M_\lambda$
-for sufficiently small $t>0$, while its utility would be $(1-t)a<a$.
+for sufficiently small $t>0$, while its utility would be $(1-t)\bar{u}<\bar{u}$.
 This is impossible. We have proved
 \begin{equation}\label{eq:exact-transformed-contour}
- M_\lambda=\{g\in\mathcal F:U_\nu(g)\leq a\}.
+ M_\lambda=\{g\in\mathcal F:U_\nu(g)\leq\bar{u}\}.
 \end{equation}
 Combining this identity with \eqref{eq:transformed-maximal-menu}
 and affinity yields
@@ -622,24 +622,24 @@ and affinity yields
  M=\{g\in\mathcal F:U_\nu(g)\leq U_\nu(f)\}.
 \]
 
-Next, every act $g$ with $U_\nu(g)=a$ is chosen from $M_\lambda$.
+Next, every act $g$ with $U_\nu(g)=\bar{u}$ is chosen from $M_\lambda$.
 For $t\in(0,1)$, put $g_t=(1-t)g+tp^*$.
-Since $U_\nu(g_t)>a$, maximality implies
+Since $U_\nu(g_t)>\bar{u}$, maximality implies
 $f_\lambda\notin c(M_\lambda\cup\{g_t\})$.
 If $g_t$ were also unchosen, then
 $c(M_\lambda\cup\{g_t\})\subseteq M_\lambda$;
 Pseudo-WARP and $f_\lambda\in c(M_\lambda)$ would give a contradiction.
 Thus $g_t\in c(M_\lambda\cup\{g_t\})$, and Continuity gives
 \begin{equation}\label{eq:contour-chosen}
- \{g:U_\nu(g)=a\}\subseteq c(M_\lambda).
+ \{g:U_\nu(g)=\bar{u}\}\subseteq c(M_\lambda).
 \end{equation}
 
 Now let $B\in\mathcal A$ and $g\in\operatorname*{arg\,max}_{h\in B}U_\nu(h)$.
 Choose $\alpha\in(0,1]$ and $j\in\{p^*,p_*\}$ so that
-$U_\nu(\alpha g+(1-\alpha)j)=a$.
-If $U_\nu(g)>a$, take $j=p_*$ and $\alpha=a/U_\nu(g)$;
-if $U_\nu(g)<a$, take $j=p^*$ and
-$\alpha=(1-a)/(1-U_\nu(g))$; otherwise take $\alpha=1$.
+$U_\nu(\alpha g+(1-\alpha)j)=\bar{u}$.
+If $U_\nu(g)>\bar{u}$, take $j=p_*$ and $\alpha=\bar{u}/U_\nu(g)$;
+if $U_\nu(g)<\bar{u}$, take $j=p^*$ and
+$\alpha=(1-\bar{u})/(1-U_\nu(g))$; otherwise take $\alpha=1$.
 By \eqref{eq:exact-transformed-contour},
 $\alpha B+(1-\alpha)j\subseteq M_\lambda$.
 Equation~\eqref{eq:contour-chosen}, contraction, and Independence imply
